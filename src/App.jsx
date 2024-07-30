@@ -6,9 +6,10 @@ import PageNotFound from "./Pages/404"
 import ProductsProvider from "./Conext/ProductContext"
 import CartProvider from "./Conext/CartContext"
 
+
 function App() {
- 
- 
+  
+
   return (
     <CartProvider>
     <ProductsProvider>
@@ -26,3 +27,4 @@ function App() {
 }
 
 export default App
+
