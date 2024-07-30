@@ -22,7 +22,7 @@ function ProductsPage() {
 
   const [query, setQuery] = useState({});
 
-  const [searchParams, setSearchParms] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(() => {
     setDisplayed(products);
@@ -31,17 +31,16 @@ function ProductsPage() {
   }, [products]);
 
   useEffect(() => {
-    setSearchParms(query);
+    setSearchParams(query);
     setSearch(query.search || "");
     let finalProducts = searchProducts(products, query.search);
     finalProducts = filterProducts(finalProducts, query.category);
     setDisplayed(finalProducts);
   }, [query]);
- 
+
   return (
     <>
-
-    <SearchBox search={search} setSearch={setSearch} setQuery={setQuery} />
+      <SearchBox search={search} setSearch={setSearch} setQuery={setQuery} />
       <div className={styles.container}>
         <div className={styles.products}>
           {!displayed.length && <Loader />}
@@ -49,7 +48,7 @@ function ProductsPage() {
             <Card key={p.id} data={p} />
           ))}
         </div>
-        <Sidebar query={query}  setQuery={setQuery}  />
+        <Sidebar query={query} setQuery={setQuery} />
       </div>
     </>
   );
